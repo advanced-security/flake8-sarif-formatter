@@ -24,8 +24,8 @@ dependencies = [
     "beautifulsoup4>=4.0.0",
 ]
 [project.urls]
-"Homepage" = "https://github.com/advanced-security/python-lint-code-scanning-action"
-"Bug Tracker" = "https://github.com/advanced-security/python-lint-code-scanning-action/issues"
+"Homepage" = "https://github.com/aegilops/flake8-sarif-formatter"
+"Bug Tracker" = "https://github.com/aegilops/flake8-sarif-formatter/issues"
 
 [project.entry-points."flake8.report"]
 sarif = "flake8_sarif_formatter.flake8_sarif_formatter:SarifFormatter"
