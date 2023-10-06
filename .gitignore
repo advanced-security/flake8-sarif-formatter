@@ -4,3 +4,4 @@ build/
 *.sarif
 *.pyc
 __pycache__/
+dist/
