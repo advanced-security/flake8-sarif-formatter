@@ -26,6 +26,11 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/aegilops/flake8-sarif-formatter"
 "Bug Tracker" = "https://github.com/aegilops/flake8-sarif-formatter/issues"
+[tool.setuptools]
+packages = ["flake8_sarif_formatter"]
+include-package-data = true
+[tool.setuptools.package-data]
+flake8_sarif_formatter = ["data/*"]
 
 [project.entry-points."flake8.report"]
 sarif = "flake8_sarif_formatter.flake8_sarif_formatter:SarifFormatter"
