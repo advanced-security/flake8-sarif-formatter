@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "flake8_sarif_formatter"
+name = "flake8-sarif-formatter"
 version = "0.0.3"
 description = "A SARIF formatter for flake8"
 readme = "README.md"
@@ -15,6 +15,7 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Software Development :: Quality Assurance",
 ]
@@ -24,8 +25,8 @@ dependencies = [
     "beautifulsoup4>=4.0.0",
 ]
 [project.urls]
-"Homepage" = "https://github.com/aegilops/flake8-sarif-formatter"
-"Bug Tracker" = "https://github.com/aegilops/flake8-sarif-formatter/issues"
+"Homepage" = "https://github.com/advanced-security/flake8-sarif-formatter"
+"Bug Tracker" = "https://github.com/advanced-security/flake8-sarif-formatter/issues"
 [tool.setuptools]
 packages = ["flake8_sarif_formatter"]
 include-package-data = true
