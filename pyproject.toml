@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flake8-sarif-formatter"
-version = "1.0.0"
+version = "1.0.1"
 description = "A SARIF formatter for flake8"
 readme = "README.md"
 requires-python = ">=3.6"
