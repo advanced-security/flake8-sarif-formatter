@@ -8,18 +8,27 @@ This is a plugin for [Flake8](https://flake8.pycqa.org/en/latest/) (a Python lin
 
 ### From PyPi
 
-Install it with pip:
+Install it with pip [from PyPi](https://pypi.org/project/flake8-sarif-formatter/):
 
 ```bash
 python3 -mpip install flake8-sarif-formatter
 ```
 
-### From this repository
+### From the GitHub repository
 
-Clone this repository and install it with pip:
+Clone the [GitHub repository](https://github.com/advanced-security/flake8-sarif-formatter) and install it with pip:
 
 ```bash
 python3 -mpip . install
+```
+
+OR
+
+Install straight from the GitHub repository:
+
+```bash
+python3 -mpip install pip --upgrade # make sure pip is sufficiently up-to-date for the #egg= fragment
+python3 -mpip install git+https://github.com/advanced-security/flake8-sarif-formatter.git#egg=flake8-sarif-formatter
 ```
 
 ## Usage
