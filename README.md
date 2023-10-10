@@ -28,7 +28,7 @@ Install straight from the GitHub repository:
 
 ```bash
 python3 -mpip install pip --upgrade # make sure pip is sufficiently up-to-date for the #egg= fragment
-python3 -mpip install git+https://github.com/advanced-security/flake8-sarif-formatter.git#egg=flake8-sarif-formatter
+python3 -mpip install 'git+https://github.com/advanced-security/flake8-sarif-formatter.git#egg=flake8-sarif-formatter'
 ```
 
 ## Usage
