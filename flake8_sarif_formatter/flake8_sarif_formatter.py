@@ -66,6 +66,8 @@ class SarifFormatter(base.BaseFormatter):
 
         json.dump(sarif, self.output_fd if self.output_fd is not None else sys.stdout, indent=2)
 
+        super().stop()
+
     def handle(self, error: Violation):
         """Convert the error into a SARIF result, and append it to the SARIF."""
         rule_id = f"flake8/{error.code}"
