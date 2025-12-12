@@ -19,7 +19,7 @@ def get_flake8_rules():
     rules: List[Dict[str, str]] = []
 
     try:
-        rules = requests.get("https://www.flake8rules.com/api/rules.json", timeout=(6.1, 20).json()
+        rules = requests.get("https://www.flake8rules.com/api/rules.json", timeout=(6.1, 20)).json()
     except Exception:
         with open(Path(__file__).parent / "data/rules.json", "r", encoding="utf-8") as f:
             rules = json.load(f)
