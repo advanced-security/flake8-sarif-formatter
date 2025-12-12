@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+pipenv install --dev
 rm -rf ./build ./dist
 python3 -mbuild
-twine upload ./dist/* -u __token__
+python3 -mtwine upload ./dist/* -u __token__
