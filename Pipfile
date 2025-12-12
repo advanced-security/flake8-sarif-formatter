@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flake8 = "*"
+requests = "*"
+beautifulsoup4 = "*"
+
+[dev-packages]
+build = "*"
+twine = "*"
+
+[requires]
+python_version = "3.12"
