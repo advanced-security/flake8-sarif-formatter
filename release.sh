@@ -4,5 +4,5 @@ set -euo pipefail
 
 pipenv install --dev
 rm -rf ./build ./dist
-python3 -mbuild
-python3 -mtwine upload ./dist/* -u __token__
+pipenv run python3 -mbuild
+pipenv run python3 -mtwine upload ./dist/* -u __token__
