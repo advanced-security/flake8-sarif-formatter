@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import List, Dict
 from flake8.formatting import base
-from flake8.style_guide import Violation
+from flake8.violation import Violation
 import requests
 from bs4 import BeautifulSoup
 
