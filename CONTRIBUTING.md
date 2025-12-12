@@ -12,6 +12,12 @@ Please raise non-security bugs and suggestions in the Issues on the GitHub-hoste
 
 Please test your changes before submitting a PR.
 
+Run existing tests with:
+
+```bash
+pipenv run python3 -munittest discover -s tests -p 'test*.py'
+```
+
 Use `pipenv` to maintain dependencies.
 
 Upload new versions to PyPi using the `./release.sh` wrapper script.
