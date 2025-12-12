@@ -13,17 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        linter: ['flake8', 'pylint', 'ruff', 'mypy', 'pytype', 'pyright', 'fixit']
+        linter: ['pylint', 'ruff', 'mypy', 'pytype', 'pyright', 'fixit']
       fail-fast: false
     steps:
       # install dependencies for this project, then run the linter, so we don't get import failures when the linters scan the code
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Install pip dependencies
         run: |
           python3 -mpip install -q --upgrade pip
           python3 -mpip install -q flake8
       - name: Run Python Lint
-        uses: advanced-security/python-lint-code-scanning-action@main
+        uses: advanced-security/python-lint-code-scanning-action@7ebf81c5860ee4d41849872bc2f95b4243c8dc28 # v1.1.3
         with:
           linter: ${{ matrix.linter }}
-          python-version: "3.10"
+          python-version: "3.13"
