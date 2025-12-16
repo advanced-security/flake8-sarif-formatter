@@ -64,7 +64,10 @@ class SarifFormatter(base.BaseFormatter):
             ],
         }
 
-        json.dump(sarif, self.output_fd if self.output_fd is not None else sys.stdout, indent=2)
+        output_stream = self.output_fd if self.output_fd is not None else sys.stdout
+        json.dump(sarif, output_stream, indent=2)
+        if hasattr(output_stream, "flush"):
+            output_stream.flush()
 
         super().stop()
 
