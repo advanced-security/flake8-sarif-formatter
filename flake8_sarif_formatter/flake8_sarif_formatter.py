@@ -20,7 +20,12 @@ def get_flake8_rules():
 
     try:
         rules = requests.get("https://www.flake8rules.com/api/rules.json", timeout=(6.1, 20)).json()
-    except Exception:
+    except requests.exceptions.RequestException as e:
+        print(f"WARNING: Failed to fetch rules from flake8rules.com: {e}", file=sys.stderr)
+        with open(Path(__file__).parent / "data/rules.json", "r", encoding="utf-8") as f:
+            rules = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"WARNING: Failed to decode JSON from flake8rules.com: {e}", file=sys.stderr)
         with open(Path(__file__).parent / "data/rules.json", "r", encoding="utf-8") as f:
             rules = json.load(f)
 
