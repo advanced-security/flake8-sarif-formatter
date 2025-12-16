@@ -20,7 +20,7 @@ def get_flake8_rules():
 
     try:
         rules = requests.get("https://www.flake8rules.com/api/rules.json", timeout=(6.1, 20)).json()
-    except Exception as e:
+    except Exception:
         with open(Path(__file__).parent / "data/rules.json", "r", encoding="utf-8") as f:
             rules = json.load(f)
 
