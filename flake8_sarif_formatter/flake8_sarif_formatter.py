@@ -82,7 +82,7 @@ class SarifFormatter(base.BaseFormatter):
                 {
                     "physicalLocation": {
                         "artifactLocation": {
-                            "uri": Path(error.filename).resolve().absolute().as_uri(),
+                            "uri": Path(error.filename).resolve().as_uri(),
                         },
                         "region": {
                             "startLine": error.line_number,
