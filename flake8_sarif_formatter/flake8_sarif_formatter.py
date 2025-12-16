@@ -29,7 +29,7 @@ def get_flake8_rules():
     for rule in rules:
         if "content" in rule:
             # HTML to plain text
-            rule["content"] = "".join(BeautifulSoup(rule["content"], features="html.parser").findAll(text=True))
+            rule["content"] = "".join(BeautifulSoup(rule["content"], features="html.parser").find_all(text=True))
         rules_dict[rule["code"]] = rule
 
     if "E501" in rules_dict and "message" in rules_dict["E501"]:
@@ -64,7 +64,10 @@ class SarifFormatter(base.BaseFormatter):
             ],
         }
 
-        json.dump(sarif, self.output_fd if self.output_fd is not None else sys.stdout, indent=2)
+        output_stream = self.output_fd if self.output_fd is not None else sys.stdout
+        json.dump(sarif, output_stream, indent=2)
+        if hasattr(output_stream, "flush"):
+            output_stream.flush()
 
         super().stop()
 
@@ -82,7 +85,7 @@ class SarifFormatter(base.BaseFormatter):
                 {
                     "physicalLocation": {
                         "artifactLocation": {
-                            "uri": Path(error.filename).resolve().absolute().as_uri(),
+                            "uri": Path(error.filename).resolve().as_uri(),
                         },
                         "region": {
                             "startLine": error.line_number,
