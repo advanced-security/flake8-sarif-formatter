@@ -7,8 +7,8 @@ updates:
     groups:
       all-actions:
         patterns: ["*"]
-    default-days: 7
-
+    cooldown:
+      default-days: 7
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
@@ -17,4 +17,5 @@ updates:
       all-python:
         patterns: ["*"]
     versioning-strategy: lockfile-only
-    default-days: 7
+    cooldown:
+      default-days: 7
