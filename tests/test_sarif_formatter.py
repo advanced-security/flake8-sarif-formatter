@@ -9,7 +9,8 @@ from unittest.mock import patch
 
 from flake8.formatting import base
 
-from flake8_sarif_formatter.flake8_sarif_formatter import SarifFormatter
+import flake8_sarif_formatter
+from flake8_sarif_formatter.flake8_sarif_formatter import SarifFormatter, get_flake8_rules
 
 
 @dataclass(frozen=True)
@@ -104,6 +105,22 @@ class TestSarifFormatter(unittest.TestCase):
         self.assertEqual(sarif["runs"][0]["tool"]["driver"]["name"], "Flake8")
         self.assertEqual(len(sarif["runs"][0]["results"]), 1)
         self.assertEqual(len(sarif["runs"][0]["tool"]["driver"]["rules"]), 1)
+
+
+class TestPackaging(unittest.TestCase):
+    def test_package_is_a_regular_package(self):
+        """The package must not be an implicit namespace package, or the checkout shadows the install."""
+        self.assertIsNotNone(flake8_sarif_formatter.__file__)
+        self.assertEqual(Path(cast(str, flake8_sarif_formatter.__file__)).name, "__init__.py")
+        self.assertIs(flake8_sarif_formatter.SarifFormatter, SarifFormatter)
+
+    def test_fallback_rules_are_packaged(self):
+        """get_flake8_rules falls back to the packaged rules.json when the download fails."""
+        with patch("flake8_sarif_formatter.flake8_sarif_formatter.requests.get", side_effect=OSError("no network")):
+            rules = get_flake8_rules()
+
+        self.assertIn("E501", rules)
+        self.assertEqual(rules["E501"]["message"], "Line too long")
 
 
 if __name__ == "__main__":
